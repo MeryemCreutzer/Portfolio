@@ -1,0 +1,50 @@
+openapi: 3.0.0
+info:
+  title: SCADA Basic Function Reference
+  description: Reference documentation for SCADA Basic functions.
+  version: 1.0.0
+
+components:
+  schemas:
+    ApplicationFunction:
+      type: object
+      properties:
+        name:
+          type: string
+          example: APPLICATION
+          description: Launches an executable program.
+        syntax:
+          type: string
+          example: IntVal = APPLICATION(Mode, Command[, Argument[, Start][, Folder]])
+          description: Function syntax.
+        returnType:
+          type: string
+          example: INTEGER
+          description: Return value of the function.
+        parameters:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                type: string
+              description:
+                type: string
+          example:
+            - name: Mode
+              type: INTEGER
+              description: Determines the action for the application.
+            - name: Command
+              type: STRING
+              description: Full command line used to launch the application.
+            - name: Argument
+              type: STRING
+              description: Optional command line arguments.
+            - name: Start
+              type: INTEGER
+              description: Defines how the application window opens.
+            - name: Folder
+              type: STRING
+              description: The working directory of the program.
