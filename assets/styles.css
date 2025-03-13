@@ -25,6 +25,7 @@ header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+
 /* Ensure spacing between logo and text */
 .header-left {
     display: flex;
@@ -58,7 +59,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #90AFC5;
+    color: #06142A;
 }
 
 /* Profile Section Styling */
@@ -78,10 +79,38 @@ nav a:hover {
     position: absolute;
     left: 0;
     top: 0;
-    width: 40%;
+    width: 45%;
     height: 100%;
-    background-color: #90AFC5;
+    background-color: #06142A;
     z-index: -1;
+    overflow: hidden;
+}
+
+/* Create twinkling stars */
+.profile-bg::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 40% 70%, white, transparent),
+        radial-gradient(2px 2px at 60% 20%, white, transparent),
+        radial-gradient(2px 2px at 80% 90%, white, transparent),
+        radial-gradient(2px 2px at 10% 50%, white, transparent),
+        radial-gradient(2px 2px at 90% 10%, white, transparent),
+        radial-gradient(2px 2px at 30% 80%, white, transparent);
+    animation: twinkle 1.5s infinite alternate;
+}
+
+/* Twinkling effect */
+@keyframes twinkle {
+    0% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 /* Profile Card */
@@ -93,7 +122,7 @@ nav a:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     /* Slight shadow at the bottom */
     position: relative;
-    margin-left: 10%;
+    margin-left: 15%;
     width: 18%;
 
 }
@@ -141,18 +170,18 @@ nav a:hover {
 }
 
 .social-icons a:hover {
-    color: #90AFC5;
+    color: #06142A;
 }
 
 .card-divider {
     width: 50%;
     margin: 20px auto;
     border: none;
-    border-top: 2px solid #90AFC5;
+    border-top: 2px solid #06142A;
 }
 
 .intro {
-    max-width: 780px;
+    max-width: 650px;
     margin-bottom: 3%;
 
 }
@@ -184,7 +213,7 @@ nav a:hover {
 }
 
 .btn-primary {
-    background-color: #90AFC5;
+    background-color: #06142A;
     color: #fff;
     border: none;
 }
@@ -201,7 +230,7 @@ nav a:hover {
 }
 
 .intro a.action {
-    color: #90AFC5;
+    color: #06142A;
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -210,13 +239,13 @@ nav a:hover {
 }
 
 .intro a.action:hover {
-    color: #90AFC5;
+    color: #06142A;
 }
 
 /* Footer */
 footer {
 
-    padding-top: 20px;
+    padding-top: 5px;
     color: #5d5c5c;
     display: flex;
     justify-content: space-around;
@@ -238,7 +267,7 @@ footer {
 }
 
 .footer-social a:hover {
-    color: #90AFC5;
+    color: #06142A;
 }
 
 
@@ -266,7 +295,7 @@ footer {
 .separator {
     width: 2px;
     /* Make it thicker */
-    background-color: #90AFC5;
+    background-color: #06142A;
     /* Change to blue */
     height: 100%;
     /* Ensure it stretches the full height */
@@ -355,7 +384,7 @@ footer {
 .back-home {
     text-decoration: none;
     font-size: 1.2rem;
-    color: #90AFC5;
+    color: #06142A;
 }
 
 .timeline-content ul {
@@ -403,7 +432,7 @@ footer {
 
 /* General Content Styling */
 .resume-h2 {
-    color: #90AFC5;
+    color: #06142A;
     font-size: 2.5rem;
     margin-bottom: 20px;
     white-space: nowrap;
@@ -424,7 +453,7 @@ footer {
 .certifications-section li::before {
     content: '✔';
     /* Add a simple icon */
-    color: #90AFC5;
+    color: #06142A;
     font-size: 1rem;
     margin-right: 10px;
 }
@@ -490,7 +519,7 @@ footer {
 }
 
 .tag-steel {
-    background-color: #90AFC5;
+    background-color: #06142A;
 }
 
 /* Horizontal Separator Between Education & Skills */
@@ -498,7 +527,7 @@ footer {
     width: 160%;
     height: 2px;
     /* Thickness of the line */
-    background-color: #90AFC5;
+    background-color: #06142A;
     /* Blue separator */
     margin: 40px 0;
     /* Spacing above and below */
@@ -599,14 +628,164 @@ footer {
     padding: 8px 15px;
     margin-top: 10px;
     font-size: 1rem;
-    background-color: #90AFC5;
+    background-color: #06142A;
     color: white;
     text-decoration: none;
     border-radius: 5px;
 }
 
 .btn-primary-projects:hover {
-    background-color: #90AFC5;
+    background-color: #06142A;
 }
 
 /*************/
+
+/* Responsive Design */
+@media (max-width: 1440px) and (min-width: 1270px) {
+
+    /* Ensures no layout changes for MacBook Air size */
+    .container {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .profile-bg {
+        width: 40%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .profile-card {
+        width: 18%;
+        margin-left: 10%;
+    }
+
+    .intro {
+        max-width: 780px;
+        padding: 0;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 1269px) {
+    .container {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .profile-bg {
+        width: 100%;
+        height: 200px;
+        position: absolute;
+    }
+
+    .profile-card {
+        width: 40%;
+        margin: auto;
+    }
+
+    .intro {
+        max-width: 100%;
+        padding: 0 10%;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .profile-card {
+        width: 50%;
+    }
+
+    .intro h1 {
+        font-size: 5rem;
+    }
+
+    .intro p {
+        font-size: 1rem;
+    }
+
+    .buttons .btn {
+        padding: 10px 20px;
+    }
+
+    .tags {
+        justify-content: center;
+    }
+
+    .footer-info {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-card {
+        width: 80%;
+    }
+
+    .intro h1 {
+        font-size: 3.5rem;
+    }
+
+    .intro p {
+        font-size: 0.9rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .buttons .btn {
+        width: 100%;
+    }
+
+    .tags {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .profile-card {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .intro h1 {
+        font-size: 2.5rem;
+    }
+
+    .intro p {
+        font-size: 0.8rem;
+    }
+
+    .social-icons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .buttons .btn {
+        font-size: 0.9rem;
+    }
+
+    .footer-info {
+        font-size: 0.8rem;
+    }
+}
