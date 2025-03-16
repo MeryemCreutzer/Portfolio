@@ -6,13 +6,15 @@
     font-style: normal;
 }
 
-/* General styles */
 body {
     font-family: 'Manrope', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #fff;
     color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header styles */
@@ -25,6 +27,12 @@ header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 /* Ensure spacing between logo and text */
 .header-left {
@@ -70,17 +78,16 @@ nav a:hover {
     padding: 10px 10px;
     gap: 60px;
     text-align: left;
-    position: relative;
 
 }
 
-/* Beige background box */
 .profile-bg {
     position: absolute;
     left: 0;
     top: 0;
     width: 45%;
-    height: 100%;
+    height: calc(100vh - 20px - 50px);
+    /* Subtracting header height (70px) and footer height (50px) */
     background-color: #06142A;
     z-index: -1;
     overflow: hidden;
@@ -123,7 +130,7 @@ nav a:hover {
     /* Slight shadow at the bottom */
     position: relative;
     margin-left: 15%;
-    width: 18%;
+    width: 20%;
 
 }
 
@@ -244,17 +251,20 @@ nav a:hover {
 
 /* Footer */
 footer {
-
-    padding-top: 5px;
+    padding: 15px;
     color: #5d5c5c;
+    background-color: #fff;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
+    width: 100%;
+    position: relative;
+    flex-shrink: 0;
+    min-height: 50px;
+    /* Ensures footer always has height */
+    text-align: left;
 }
 
-.footer-info {
-    margin-right: 70%;
-}
 
 .footer-info p {
     margin: 5px 0;
@@ -640,41 +650,40 @@ footer {
 
 /*************/
 
-/* Responsive Design */
-@media (max-width: 1440px) and (min-width: 1270px) {
-
-    /* Ensures no layout changes for MacBook Air size */
-    .container {
-        flex-direction: row;
-        text-align: left;
-    }
-
-    .profile-bg {
-        width: 40%;
-        height: 100%;
-        position: absolute;
-    }
-
+@media (min-width: 1300px) and (max-width: 1600px) {
     .profile-card {
-        width: 18%;
-        margin-left: 10%;
+        width: 25%;
     }
 
     .intro {
-        max-width: 780px;
-        padding: 0;
-    }
-
-    .social-icons {
-        justify-content: flex-start;
+        max-width: 500px;
     }
 }
 
-@media (max-width: 1269px) {
+@media (min-width: 1000px) and (max-width: 1299px) {
+    .intro a.action {
+        font-size: 18px;
+    }
+
+    .intro p {
+        font-size: 1rem;
+    }
+
+    .intro {
+        max-width: 400px;
+    }
+
+    .profile-card {
+        width: 30%;
+    }
+}
+
+
+@media (max-width: 999px) {
     .container {
         flex-direction: column;
-        gap: 30px;
         text-align: center;
+        align-items: center;
     }
 
     .profile-bg {
@@ -684,108 +693,38 @@ footer {
     }
 
     .profile-card {
-        width: 40%;
+        position: relative;
+        width: 60%;
+        left: auto;
+        transform: none;
         margin: auto;
     }
 
     .intro {
-        max-width: 100%;
-        padding: 0 10%;
+        max-width: 40%;
+        padding: 0;
     }
 
     .social-icons {
-        justify-content: center;
+        justify-content: flex-start;
     }
 }
 
-@media (max-width: 1024px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 20px;
-    }
+@media (min-width: 1300px) {
 
-    .profile-card {
-        width: 50%;
-    }
-
-    .intro h1 {
-        font-size: 5rem;
-    }
-
-    .intro p {
-        font-size: 1rem;
-    }
-
-    .buttons .btn {
-        padding: 10px 20px;
-    }
-
-    .tags {
-        justify-content: center;
-    }
-
-    .footer-info {
-        text-align: center;
+    html,
+    body {
+        overflow: hidden;
     }
 }
 
-@media (max-width: 768px) {
-    .profile-card {
-        width: 80%;
-    }
-
-    .intro h1 {
-        font-size: 3.5rem;
-    }
-
-    .intro p {
-        font-size: 0.9rem;
-    }
-
-    .buttons {
-        flex-direction: column;
-    }
-
-    .buttons .btn {
-        width: 100%;
-    }
-
-    .tags {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 10px;
-    }
-
-    .profile-card {
-        width: 90%;
+@media (max-width: 1400px) {
+    footer {
         padding: 20px;
-    }
-
-    .intro h1 {
-        font-size: 2.5rem;
-    }
-
-    .intro p {
-        font-size: 0.8rem;
-    }
-
-    .social-icons {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .buttons .btn {
-        font-size: 0.9rem;
+        text-align: center;
     }
 
     .footer-info {
-        font-size: 0.8rem;
+        width: 100%;
     }
 }
