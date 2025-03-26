@@ -53,22 +53,20 @@ main {
 .logo-img {
 
     height: auto;
-    margin-top: -1%;
+    margin-top: 1%;
 }
 
 .logo-text {
     font-size: 1.5rem;
     font-weight: normal;
     color: #06142A;
+    text-wrap: nowrap;
 }
 
 .title {
     font-size: 1rem;
     color: #333333;
-}
-
-nav {
-    margin-left: 36%;
+    text-wrap: nowrap;
 }
 
 nav a {
@@ -792,6 +790,14 @@ h3.sub-title {
     .tags {
         width: 50vh;
     }
+
+    .logo-text {
+        text-wrap: wrap;
+    }
+
+    .title {
+        text-wrap: wrap;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1089px) {
@@ -825,6 +831,14 @@ h3.sub-title {
 
     .company-logo {
         margin-left: 0;
+    }
+
+    .logo-text {
+        text-wrap: wrap;
+    }
+
+    .title {
+        text-wrap: wrap;
     }
 }
 
@@ -876,6 +890,24 @@ h3.sub-title {
     .skill-list {
         width: 100%;
     }
+
+    .logo-text {
+        text-wrap: wrap;
+    }
+
+    .title {
+        text-wrap: wrap;
+    }
+
+    .intro p {
+        font-size: 16px;
+    }
+
+    .intro a.action {
+        font-size: 16px;
+    }
+
+
 }
 
 
@@ -1297,7 +1329,6 @@ h3.sub-title {
 }
 
 .theme-toggle {
-    margin-left: auto;
     margin-right: 20px;
     display: flex;
     align-items: center;
@@ -1306,8 +1337,8 @@ h3.sub-title {
 .toggle-wrapper {
     position: relative;
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
 }
 
 .toggle-wrapper input {
@@ -1470,4 +1501,8 @@ body.dark-mode .profile-bg::before {
         radial-gradient(2px 2px at 10% 50%, #ccc, transparent),
         radial-gradient(2px 2px at 90% 10%, #ccc, transparent),
         radial-gradient(2px 2px at 30% 80%, #ccc, transparent);
+}
+
+body.dark-mode .profile-bg {
+    background-color: rgb(3, 18, 41);
 }

@@ -30,16 +30,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Theme toggle logic
     const themeSwitch = document.getElementById("theme-switch");
+    const themeIcon = document.querySelector(".slider i");
     const savedTheme = localStorage.getItem("theme");
 
     if (savedTheme === "dark") {
         document.body.classList.add("dark-mode");
         themeSwitch.checked = true;
+        if (themeIcon) {
+            themeIcon.classList.remove("fa-moon");
+            themeIcon.classList.add("fa-sun");
+        }
     }
 
     themeSwitch.addEventListener("change", () => {
         document.body.classList.toggle("dark-mode");
-        const newTheme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+        const isDark = document.body.classList.contains("dark-mode");
+
+        if (themeIcon) {
+            themeIcon.classList.toggle("fa-moon", !isDark);
+            themeIcon.classList.toggle("fa-sun", isDark);
+        }
+
+        const newTheme = isDark ? "dark" : "light";
         localStorage.setItem("theme", newTheme);
     });
 });
